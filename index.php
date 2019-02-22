@@ -8,8 +8,11 @@ if (!isset($_SESSION['login_id'])) {
 
 $login_id = $_SESSION['login_id'];
 $login = $_SESSION['login'];
-$_SESSION['token'] = sha1(uniqid(rand(), true));
+$_SESSION['token'] = sha1(uniqid(mt_rand(), true));
 
 include 'base.php';
 
-include 'index.html';
+$json_data = file_get_contents('accounts.json');
+$accounts = json_decode($json_data, TRUE);
+
+include 'html/index.html';

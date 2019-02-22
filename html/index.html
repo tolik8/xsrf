@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>XSRF example</title>
@@ -15,11 +15,11 @@
 <h3>Balance <?= $accounts[$login_id]; ?></h3>
 
 <form method="POST" action="send.php">
-    <label>Send id</label>
     <input hidden name="token" value="<?= $_SESSION['token']; ?>">
-    <input type="text" name="send_id"><br>
-    <label>Sum</label>
-    <input type="text" name="sum"><br>
+    <label for="send">Send id</label>
+    <input type="text" name="send_id" id="send"><br>
+    <label for="sum">Sum</label>
+    <input type="text" name="sum" id="sum"><br>
     <input type="submit" name="bt_send" value="Send">
 </form>
 

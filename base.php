@@ -1,16 +1,13 @@
 <?php
 
 $users = [
-    1 => "user1",
-    2 => "user2",
+    1 => 'user1',
+    2 => 'user2',
+    3 => 'user3',
 ];
 
-$password = [
-    1 => "pass1",
-    2 => "pass2",
-];
-
-$accounts = [
-    1 => 1000,
-    2 => 10,
+$passwords = [
+    1 => 'pass1',
+    2 => 'pass2',
+    3 => 'pass3',
 ];
