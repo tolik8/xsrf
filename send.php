@@ -23,6 +23,8 @@ if (isset($_POST['send_id'])) {
     
     if ($input_token !== $session_token && $token_enabled) {
         echo '<h3 style="color:red">Bad token!</h3>';
+        //echo 'Input token ' . $input_token . '<br>';
+        //echo 'Session token ' . $session_token;
         exit;
     }
 
