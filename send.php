@@ -1,18 +1,18 @@
 <?php
-session_start();
+
+include 'session.php';
 
 if (!isset($_SESSION['login_id'])) {
     header('Location: login.php');
     exit;
 }
 
-$login_id = $_SESSION['login_id'];
-$login = $_SESSION['login'];
-$session_token = $_SESSION['token'];
-if (isset($_POST['token'])) {$input_token = $_POST['token'];} else {$input_token = '';}
-
 include 'config.php';
 include 'base.php';
+
+$login_id = $_SESSION['login_id'];
+$login = $_SESSION['login'];
+if (isset($_POST['token'])) {$input_token = $_POST['token'];} else {$input_token = '';}
 
 $json_data = file_get_contents('accounts.json');
 $accounts = json_decode($json_data, TRUE);
@@ -21,10 +21,10 @@ echo '<a href="index.php">Home</a><hr>';
 
 if (isset($_POST['send_id'])) {
     
-    if ($input_token !== $session_token && $token_enabled) {
+    if ($input_token !== $token && $token_enabled) {
         echo '<h3 style="color:red">Bad token!</h3>';
         //echo 'Input token ' . $input_token . '<br>';
-        //echo 'Session token ' . $session_token;
+        //echo 'Session token ' . $token;
         exit;
     }
 
